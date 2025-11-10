@@ -17,7 +17,8 @@ public class Start_Item_Information : ScriptableObject
     public Vector2 direction;
     public float speed;
     public float damage;
-
+    public float max_magnitude;
+    
 
     public enum Item_type
     {

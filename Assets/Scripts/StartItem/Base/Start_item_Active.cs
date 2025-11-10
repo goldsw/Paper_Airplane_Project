@@ -4,13 +4,15 @@ public abstract class Start_item_Active : ScriptableObject, Iitem_Active_interfa
 {
     protected Start_Item_Information item_info;
     protected GameObject player;
+    protected Start_Item my_start_item;
     protected Player_Physics player_Physics;
 
-    virtual public void Initialize(Start_Item_Information info)
+    virtual public void Initialize(Start_Item_Information info, Start_Item item)
     {
         this.item_info = info;
         player = GameObject.FindGameObjectWithTag("Player");
         player_Physics = player.GetComponent<Player_Physics>();
+        my_start_item = item;
     }
 
 

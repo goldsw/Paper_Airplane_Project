@@ -15,8 +15,9 @@ MonoBehaviour:
   item_type: 0
   price: 0
   image: {fileID: 0}
-  item_instruction: 
+  item_instruction: "\uD3C9\uBC94\uD55C \uC0C8\uCD1D"
   Effect: {fileID: 0}
   direction: {x: 0, y: 0}
-  speed: 100
+  speed: 400
   damage: 0
+  max_magnitude: 2

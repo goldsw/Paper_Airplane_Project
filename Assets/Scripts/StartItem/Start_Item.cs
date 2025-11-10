@@ -12,7 +12,7 @@ public class Start_Item : MonoBehaviour
     //테스트--
     private void Start()
     {
-        Start_item_Active.Initialize(Start_item_Info);
+        Start_item_Active.Initialize(Start_item_Info, this);
 
         switch (Start_item_Info.item_type) {
             case (Start_Item_Information.Item_type.새총):{
@@ -36,6 +36,8 @@ public class Start_Item : MonoBehaviour
     }
     private void Update()
     {
+
+        //TODO : 테스트 다 하고 연결 끊어!
         if (Input.GetMouseButtonDown(0))
         {
             Start_item_Active.testin(Camera.main.ScreenToWorldPoint(Input.mousePosition));

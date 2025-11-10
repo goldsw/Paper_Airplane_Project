@@ -14,16 +14,20 @@ public class SlingShot_behavior : Start_item_Active
     public override void Manager_Physics_Update()
     {
         base.Manager_Physics_Update();
+        player_Physics.Add_Max_Speed(100f);
     }
     public override void Manager_Update()
     {
         base.Manager_Update();
-        //player.transform.position = handle.transform.position;
+        Vector2 dir = finger_first_pos - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        dir = Vector2.ClampMagnitude(dir, item_info.max_magnitude);
+        Debug.DrawLine((Vector2)my_start_item.transform.position, (Vector2)my_start_item.transform.position - dir);
+
+        player.transform.position = (Vector2)my_start_item.transform.position + new Vector2(0, 2f) - dir;
     }
     public override void Manager_Start()
     {
         base.Manager_Start();
-        player_Physics.Add_Max_Speed(100f);
     }
     public override void Manager_Exit()
     {
@@ -33,19 +37,23 @@ public class SlingShot_behavior : Start_item_Active
     public override void testin(Vector2 vec)
     {
         base.testin(vec);
-        Debug.DrawLine(new Vector3(vec.x, vec.y), new Vector3(vec.x - 1, vec.y + 1), Color.red, 100f);
         finger_first_pos = vec;
     }
 
     public override void testout(Vector2 vec)
     {
         base.testout(vec);
-        Debug.DrawLine(new Vector3(vec.x, vec.y), new Vector3(vec.x - 1, vec.y + 1), Color.blue, 100f);
-        base.Manager_Exit();
-        Vector2 dir = finger_first_pos - finger_last_pos;
-        Debug.Log("hi");
-        player_Physics.Add_Force(dir.magnitude * item_info.speed * dir.normalized);
+
         finger_last_pos = vec;
+        Vector2 dir = finger_first_pos - finger_last_pos;
+
+        if(dir.magnitude > item_info.max_magnitude)
+            player_Physics.Add_Force(item_info.max_magnitude * item_info.speed * dir.normalized);
+        else
+            player_Physics.Add_Force(dir.magnitude * item_info.speed * dir.normalized);
+
+        base.Manager_Exit();
+
     }
 
 
