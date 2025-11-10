@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874502350e28ad3439b137369db26220, type: 3}
   m_Name: SlingShot
   m_EditorClassIdentifier: Assembly-CSharp::Start_Item_Information
+  item_type: 0
   price: 0
   image: {fileID: 0}
   item_instruction: 
   Effect: {fileID: 0}
   direction: {x: 0, y: 0}
-  speed: 600
+  speed: 100
   damage: 0

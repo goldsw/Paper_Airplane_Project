@@ -17,21 +17,21 @@ public class Item : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(isClicked == false)
-            {
-                OnClick();
-                isClicked = true;
-                return;
-            }
-            if (isClicked == true)
-            {
-                OnEnd();
-                isClicked= false;
-                return;
-            }
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    if(isClicked == false)
+        //    {
+        //        OnClick();
+        //        isClicked = true;
+        //        return;
+        //    }
+        //    if (isClicked == true)
+        //    {
+        //        OnEnd();
+        //        isClicked= false;
+        //        return;
+        //    }
+        //}
 
     }
     //-----------

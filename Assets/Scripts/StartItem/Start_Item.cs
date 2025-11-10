@@ -39,11 +39,12 @@ public class Start_Item : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Start_item_Active.testin(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            OnClick();
         }
         if (Input.GetMouseButtonUp(0))
         {
             Start_item_Active.testout(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
+            OnEnd();
         }
 
     }

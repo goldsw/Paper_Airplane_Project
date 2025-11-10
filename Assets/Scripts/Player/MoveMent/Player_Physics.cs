@@ -10,6 +10,8 @@ public class Player_Physics : MonoBehaviour
 
     Rigidbody2D Player_RB;
 
+    public bool isStart = false;
+
     Vector2 acceleration = new Vector2(0, 0);
     Vector2 input_acceleration = new Vector2(0, 0);
     Vector2 gravity = new Vector2(0, -9.8f);
@@ -32,6 +34,8 @@ public class Player_Physics : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameManager.Start_Item_Physics_Delegate += Manager_PhysicsUpdate;
+        GameManager.Start_Item_Update_Delegate += Manager_Update;
         Manager_Start();
         Player_RB = GetComponent<Rigidbody2D>();
         Initialize_Stats(new Vector2(0, 2), 10, 3);
@@ -40,16 +44,16 @@ public class Player_Physics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Add_Force(new Vector2(0, 2));
-        }
-        Manager_Update();
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Add_Force(new Vector2(0, 2));
+        //}
+        //Manager_Update();
     }
 
     private void FixedUpdate()
     {
-        Manager_PhysicsUpdate();
+        //Manager_PhysicsUpdate();
     }
 
     #endregion
@@ -78,19 +82,28 @@ public class Player_Physics : MonoBehaviour
         //가속도
         //속도 += 가속도
         //위치 += 속도
-    {
-        acceleration = gravity + air_drag;
-
+    {if(isStart)
+        { 
+        acceleration = gravity; // + air_drag;
         Add_Force(new Vector2(3f, 0));
+        
+        }
+        
+
+
         //가속도 계산
         gravity_velocity += acceleration * Time.fixedDeltaTime;
         gravity_velocity = Vector2.ClampMagnitude(gravity_velocity, max_gravity_speed);
         input_velocity += input_acceleration * Time.fixedDeltaTime;
         input_velocity = Vector2.ClampMagnitude(input_velocity, max_speed);
 
-        Vector3 velocity = gravity_velocity + input_velocity;
 
-        //Debug.Log(velocity);
+        Debug.Log(gravity_velocity);
+        Debug.Log(input_acceleration);
+        Debug.Log(input_velocity);
+        Vector3 velocity = gravity_velocity + input_velocity;
+        Debug.Log(velocity);
+
 
         Vector3 next_pos = (transform.position + new Vector3(velocity.x, velocity.y) * Time.fixedDeltaTime);
         Vector3 dir = next_pos - transform.position;
@@ -120,6 +133,7 @@ public class Player_Physics : MonoBehaviour
     public void Add_Force(Vector2 force)
     {
         input_acceleration += force / Player_RB.mass;
+        Debug.Log(force);
     }
 
     public void Add_Max_Speed(float _max_speed)
@@ -136,5 +150,6 @@ public class Player_Physics : MonoBehaviour
     {
         air_drag += _air_drag;
     }
+
 
 }

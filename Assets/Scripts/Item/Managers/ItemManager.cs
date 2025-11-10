@@ -14,11 +14,8 @@ public class ItemManager : MonoBehaviour
     {
         onUpdateInvoke += () => { };
         onPhysicsUpdateInvoke += () => { };
-    }
-
-    private void FixedUpdate()
-    {
-        Item_Active_Physics_Update();
+        GameManager.Game_Physics_Delegate += Item_Active_Physics_Update;
+        GameManager.Game_Update_Delegate += Item_Active_Update;
     }
 
 
