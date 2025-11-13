@@ -5,15 +5,20 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public ItemActive itemActive;
-    public Item_Information item_Info;
+    public ItemActive ItemActive;
+    public Item_Information Item_Info;
     bool isClicked = false;
 
 
     //Å×½ºÆ®--
+    private void Awake()
+    {
+        ItemActive.Initialize(Item_Info);
+        
+    }
+
     private void Start()
     {
-        itemActive.Initialize(item_Info);
     }
     private void Update()
     {
@@ -38,12 +43,12 @@ public class Item : MonoBehaviour
 
     public void OnClick()
     {
-        itemActive.Manager_Start();
+        ItemActive.Manager_Start();
     }
 
     public void OnEnd()
     {
-        itemActive.Manager_Exit();
+        ItemActive.Manager_Exit();
     }
 
 

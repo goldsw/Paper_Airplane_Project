@@ -7,7 +7,7 @@ public class Item_Information : ScriptableObject
     [Header("아이템 정보")]
     Item_type item_Type;
     public int price;
-    public Image image;
+    public Sprite item_sprite;
     public string item_instruction;
 
     [Header("아이템 이펙트")]
@@ -17,7 +17,7 @@ public class Item_Information : ScriptableObject
     public Vector2 direction;
     public float speed;
     public float damage;
-
+    public float cooltime;
 
     enum Item_type
     {
