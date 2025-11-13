@@ -13,6 +13,7 @@ public abstract class Start_item_Active : ScriptableObject, Iitem_Active_interfa
         player = GameObject.FindGameObjectWithTag("Player");
         player_Physics = player.GetComponent<Player_Physics>();
         my_start_item = item;
+        player_Physics.isStart = false;
     }
 
 
@@ -28,6 +29,9 @@ public abstract class Start_item_Active : ScriptableObject, Iitem_Active_interfa
     {
         Start_item_Manager.onPhysicsUpdateInvokeDelegate += Manager_Physics_Update;
         Start_item_Manager.onUpdateInvokeDelegate += Manager_Update;
+        player_Physics.Manager_Start();
+        GameManager.GameStart(false);
+        player_Physics.isStart = false;
     }
     virtual public void Manager_Exit()
     {

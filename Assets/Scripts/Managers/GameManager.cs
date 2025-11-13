@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    static bool isGameStart = false;
+    static bool isGameStart = true;
 
     public delegate void Start_item_Manager_Invoke();
     public delegate void Item_Manager_Invoke();

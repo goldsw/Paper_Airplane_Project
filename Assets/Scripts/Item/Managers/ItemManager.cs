@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    
+    public GameObject[] Item_Slots = new GameObject[3];
 
     public delegate void OnItemActiveInvoke();
     public static OnItemActiveInvoke onUpdateInvoke;

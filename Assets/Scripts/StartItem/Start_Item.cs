@@ -10,6 +10,9 @@ public class Start_Item : MonoBehaviour
     bool isClicked = false;
 
     //테스트--
+
+    bool test = false;
+
     private void Start()
     {
         Start_item_Active.Initialize(Start_item_Info, this);
@@ -38,15 +41,16 @@ public class Start_Item : MonoBehaviour
     {
 
         //TODO : 테스트 다 하고 연결 끊어!
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && test == false)
         {
             Start_item_Active.testin(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             OnClick();
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && test == false)
         {
             Start_item_Active.testout(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             OnEnd();
+            test = true;
         }
 
     }

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    Item Item;
+    public Item Item;
     Button button;
 
     private void Start() // 아이템이 없다고 가정
