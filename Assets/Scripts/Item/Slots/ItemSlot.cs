@@ -44,6 +44,7 @@ public class ItemSlot : MonoBehaviour
     public void On_Click()
     {
         Item.OnClick();
+        Let_CoolTime();
     }
 
     public void Set_CoolTime(float _coolTime)
@@ -65,18 +66,18 @@ public class ItemSlot : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            cool_time_image.fillAmount = timer / cooltime;
+            cool_time_image.fillAmount = 1 - timer / cooltime;
 
             if(timer >= cooltime)
             {
                 button.enabled = true;
-
-                cooltime = 0f;
                 break;
             }
-
             yield return null;
         }
+
+        timer = 0f;
+        yield break;
     }
 
 

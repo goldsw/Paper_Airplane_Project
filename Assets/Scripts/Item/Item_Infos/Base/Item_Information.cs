@@ -15,9 +15,11 @@ public class Item_Information : ScriptableObject
 
     [Header("아이템 밸류")]
     public Vector2 direction;
-    public float speed;
+    public float force;
+    public float max_speed;
     public float damage;
     public float cooltime;
+    public float duration;
 
     enum Item_type
     {

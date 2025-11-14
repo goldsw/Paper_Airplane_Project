@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class Test_behavior : ItemActive
 {
-
-    public override void Manager_Exit()
+    float timer = 0f;
+    public override void Manager_Update()
     {
-        base.Manager_Exit();
-    }
+        if (timer > Item_info.duration) Manager_Exit();
 
+        base.Manager_Update();
+
+        timer += Time.deltaTime;
+    }
     public override void Manager_Physics_Update()
     {
-        player_Physics.Add_Force(Item_info.direction.normalized * Item_info.speed);
         base.Manager_Physics_Update();
+        player_Physics.Add_Force(Item_info.direction.normalized * Item_info.force);
+        player_Physics.Add_Max_Speed(Item_info.max_speed);
     }
-
     public override void Manager_Start()
     {
         base.Manager_Start();
     }
-
-    public override void Manager_Update()
+    public override void Manager_Exit()
     {
-        base.Manager_Update();
+        base.Manager_Exit();
+        timer = 0f;
     }
 }
+
