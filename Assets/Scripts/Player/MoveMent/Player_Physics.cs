@@ -114,6 +114,7 @@ public class Player_Physics : MonoBehaviour
 
         //위치
         transform.position = next_pos;
+        Camera.main.transform.position = new Vector3(next_pos.x, next_pos.y, Camera.main.transform.position.z);
 
         //물리 밸류 초기화
         input_acceleration = Vector2.zero;
