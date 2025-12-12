@@ -13,6 +13,7 @@ public class Start_item_Manager : MonoBehaviour
         onPhysicsUpdateInvokeDelegate += () => { };
         GameManager.Start_Item_Physics_Delegate += Item_Active_Physics_Update;
         GameManager.Start_Item_Update_Delegate += Item_Active_Update;
+        
     }
 
 

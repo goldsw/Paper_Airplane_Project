@@ -134,7 +134,6 @@ public class Player_Physics : MonoBehaviour
     public void Add_Force(Vector2 force)
     {
         input_acceleration += force / Player_RB.mass;
-        Debug.Log(force);
     }
 
     public void Add_Max_Speed(float _max_speed)
