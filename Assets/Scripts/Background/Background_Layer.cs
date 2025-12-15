@@ -3,57 +3,28 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class Background_Layer : MonoBehaviour
+public abstract class Background_Layer : MonoBehaviour
 {
-    public Sprite background_image;
-    public float parallaxEffect;
-    public Camera cam;
-    public Background_Manager bg_manager;
-
-    private SpriteRenderer spriteRenderer;
-    private Player_Physics player_Physics;
-    private Vector2 startPos;
-    private float width;
-    private float height;
-
-
-    private void Start()
+    //protected 뭔가 데이터부가 필요
+    public void Initialize_Background()// 데이터를 뭘 줄까?. 이미지, 구현 스크립트, 이것만?.. 일단 ㅇㅋ
     {
-        startPos = (Vector2)transform.position;
 
-        player_Physics = GameObject.FindWithTag("Player").GetComponent<Player_Physics>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = background_image;
-
-
-        width = background_image.bounds.size.x;
-        height = background_image.bounds.size.y;
     }
-
-    private void Update()
+    public virtual void OnStart()
     {
-        Vector2 distanceVec = (Vector2)cam.transform.position * parallaxEffect;
-        Vector2 movementVec = (Vector2)cam.transform.position * (1 - parallaxEffect);
 
-
-        //transform.position = new Vector3(startPos.x + distanceVec.x, startPos.y + distanceVec.y, 0);
-
-        bg_manager.Check_out_range(this.transform);
     }
-
-
-    public void Change_Background(Sprite _sprite)
+    public virtual void OnUpdate()
     {
-        background_image = _sprite;
-        spriteRenderer.sprite = background_image;
-        width = spriteRenderer.bounds.size.x;
-        height = spriteRenderer.bounds.size.y;
+
     }
+    public virtual void OnPhysicsUpdate()
+    {
 
-       
+    }
+    public virtual void OnExit()
+    {
 
-
-
-
+    }
 
 }
