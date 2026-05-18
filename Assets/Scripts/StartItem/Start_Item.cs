@@ -11,7 +11,7 @@ public class Start_Item : MonoBehaviour
 
     //테스트--
 
-    bool test = false;
+    bool test = true;
 
     private void Start()
     {
@@ -41,12 +41,12 @@ public class Start_Item : MonoBehaviour
     {
 
         //TODO : 테스트 다 하고 연결 끊어!
-        if (Input.GetMouseButtonDown(0) && test == false)
+        if (Input.GetMouseButtonDown(0) && test == true)
         {
             Start_item_Active.testin(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             OnClick();
         }
-        if (Input.GetMouseButtonUp(0) && test == false)
+        if (Input.GetMouseButtonUp(0) && test == true)
         {
             Start_item_Active.testout(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             OnEnd();

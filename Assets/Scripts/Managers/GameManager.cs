@@ -24,24 +24,26 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        Start_Item_Update_Delegate.Invoke();
-
         if (isGameStart == false) return;
 
+
+        Start_Item_Update_Delegate.Invoke();
         Game_Update_Delegate.Invoke();
     }
     private void FixedUpdate()
     {
-        Start_Item_Physics_Delegate.Invoke();
-
         if (isGameStart == false) return;
 
+
+
+        Start_Item_Physics_Delegate.Invoke();
         Game_Physics_Delegate.Invoke();
     }
 
     public static void GameStart(bool _gameStart)
     {
         isGameStart = _gameStart;
+        Debug.Log(isGameStart);
     }
 
 }

@@ -13,7 +13,6 @@ public class Background_Manager : MonoBehaviour
     [Header("Test")]
     public GameObject player;
 
-
     float negative_range_in_x_zone;
     float positive_range_in_x_zone;
     float negative_range_in_y_zone;
@@ -22,9 +21,6 @@ public class Background_Manager : MonoBehaviour
     //{
 
     //};
-
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
