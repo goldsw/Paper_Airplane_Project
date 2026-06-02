@@ -23,8 +23,8 @@ public class Item_Information : ScriptableObject
 
     enum Item_type
     {
-        무기,
-        부스터,
-        효과
+        Weapon,
+        Booster,
+        buff
     }
 }

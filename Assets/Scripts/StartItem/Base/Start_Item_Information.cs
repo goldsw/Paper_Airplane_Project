@@ -22,8 +22,8 @@ public class Start_Item_Information : ScriptableObject
 
     public enum Item_type
     {
-        ªı√—,
-        ∆»,
-        ∑Œƒœ
+        SlingShot,
+        Hand,
+        Rocket
     }
 }

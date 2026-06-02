@@ -2,7 +2,7 @@ using System;
 using UnityEditor.Build;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class SkillManager : MonoBehaviour
 {
     public GameObject[] Item_Slots = new GameObject[3];
 
@@ -17,7 +17,6 @@ public class ItemManager : MonoBehaviour
         GameManager.Game_Physics_Delegate += Item_Active_Physics_Update;
         GameManager.Game_Update_Delegate += Item_Active_Update;
     }
-
 
     public void Item_Active_Update()
     {

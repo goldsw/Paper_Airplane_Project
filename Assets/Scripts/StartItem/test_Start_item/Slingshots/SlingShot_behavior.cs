@@ -2,10 +2,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Start_Item/Start_Item_Active/Sling_Shot", order = 1)]
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Start_Item/SlingShot_Behavior", order = 1)]
+
 public class SlingShot_behavior : Start_item_Active
 {
-    BenshMark benchmark;
+    BenchMark benchmark;
     Band band;
     Vector2 finger_first_pos;
     Vector2 finger_last_pos;
@@ -13,8 +14,9 @@ public class SlingShot_behavior : Start_item_Active
     public override void Initialize(Start_Item_Information info, Start_Item item)
     {
         base.Initialize(info, item);
-        benchmark = item.transform.GetComponentInChildren<BenshMark>(); 
+        benchmark = item.transform.GetComponentInChildren<BenchMark>(); 
         band = item.transform.GetComponentInChildren<Band>();
+        Debug.Log(benchmark);
         band.Setting(item_info, benchmark, player_Physics);
     }
 
@@ -63,7 +65,9 @@ public class SlingShot_behavior : Start_item_Active
         finger_last_pos = vec;
         Vector2 dir = finger_first_pos - finger_last_pos;
 
-        if(dir.magnitude > item_info.max_magnitude)
+        float dir_mag = dir.magnitude;
+        float max_mag = item_info.max_magnitude;
+        if (dir_mag > max_mag)
             player_Physics.Add_Force(item_info.max_magnitude * item_info.speed * dir.normalized);
         else
             player_Physics.Add_Force(dir.magnitude * item_info.speed * dir.normalized);

@@ -12,12 +12,14 @@ public class Player_Physics : MonoBehaviour
 
     public bool isStart = true;
 
-    Vector2 acceleration = new Vector2(0, 0);
-    Vector2 input_acceleration = new Vector2(0, 0);
-    Vector2 gravity = new Vector2(0, -9.8f);
-    public Vector2 air_drag = new Vector2(0, 6);
-    Vector2 gravity_velocity = new Vector2(0, 0);
-    Vector2 input_velocity = new Vector2(0, 0);
+    [SerializeField] private Vector2 gravity  = new Vector2(0, -9.8f);
+    [SerializeField] private Vector2 air_drag = new Vector2(0, 6);
+
+    private Vector2 acceleration              = new Vector2(0, 0);
+    private Vector2 input_acceleration        = new Vector2(0, 0);
+    private Vector2 gravity_velocity          = new Vector2(0, 0);
+    private Vector2 input_velocity            = new Vector2(0, 0);
+
     public float max_speed_stats;
     public float max_speed;
     public float max_gravity_speed;
@@ -60,6 +62,7 @@ public class Player_Physics : MonoBehaviour
     {
         air_drag = _air_drag_up;
         max_speed_stats = _max_speed;
+        max_speed = _max_gravity_speed;
         max_gravity_speed = _max_gravity_speed;
     }
 

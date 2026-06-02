@@ -274,8 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d59b22d03134444faf9626c30db8c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  itemManager: {fileID: 0}
-  start_item_manager: {fileID: 0}
+  itemManager: {fileID: 972587813}
+  start_item_manager: {fileID: 701276358}
 --- !u!1 &237793912
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Physics
   isStart: 1
+  gravity: {x: 0, y: -9.8}
   air_drag: {x: 0, y: 6}
   max_speed_stats: 0
   max_speed: 0
@@ -440,7 +441,6 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
-  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -566,103 +566,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!82 &330585548
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 0695364c703528b4ca52726e7cbc6e7d, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &573840725
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,8 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd7c4e57510dca4b9763592909a79e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  ItemActive: {fileID: 11400000, guid: dc8a85558c5d9aa48943bf7df97f5bf2, type: 2}
-  Item_Info: {fileID: 11400000, guid: 32dacd6f82f14c64cb2547320eff5423, type: 2}
+  SkillActive: {fileID: 11400000, guid: dc8a85558c5d9aa48943bf7df97f5bf2, type: 2}
+  Skill_Info: {fileID: 11400000, guid: 32dacd6f82f14c64cb2547320eff5423, type: 2}
 --- !u!4 &573840727
 Transform:
   m_ObjectHideFlags: 0
@@ -1094,7 +997,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 972587812}
-  - component: {fileID: 972587811}
+  - component: {fileID: 972587813}
   m_Layer: 0
   m_Name: Item_Manager
   m_TagString: Untagged
@@ -1102,22 +1005,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &972587811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972587810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f027299e4380e141804329b8d7524b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemManager
-  Item_Slots:
-  - {fileID: 1661628681}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &972587812
 Transform:
   m_ObjectHideFlags: 0
@@ -1133,6 +1020,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1832262915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972587813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972587810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a381fca1d69644885097e7e6536297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillManager
+  Item_Slots:
+  - {fileID: 2142355109}
+  - {fileID: 1416533225}
+  - {fileID: 1902007134}
 --- !u!1 &1054473637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,8 +1241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
   cool_time_image: {fileID: 178717678}
-  Item_Skill_image: {fileID: 1479174359}
-  testitem: {fileID: 573840726}
+  current_Skill_image: {fileID: 1479174359}
+  testSkill: {fileID: 573840726}
 --- !u!114 &1416533228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,8 +2194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
   cool_time_image: {fileID: 1054473639}
-  Item_Skill_image: {fileID: 618701497}
-  testitem: {fileID: 573840726}
+  current_Skill_image: {fileID: 618701497}
+  testSkill: {fileID: 573840726}
 --- !u!114 &1902007137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2522,8 +2425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
   cool_time_image: {fileID: 1202303556}
-  Item_Skill_image: {fileID: 1712725830}
-  testitem: {fileID: 573840726}
+  current_Skill_image: {fileID: 1712725830}
+  testSkill: {fileID: 573840726}
 --- !u!114 &2142355112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2703,6 +2606,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -198796417
       objectReference: {fileID: 0}
+    - target: {fileID: 8800737041503270573, guid: f659f8bb99fe57d488bf920bf06c0eea, type: 3}
+      propertyPath: Start_item_Info
+      value: 
+      objectReference: {fileID: 11400000, guid: 38ebd074af7e091469faa72ca3642d8b, type: 2}
+    - target: {fileID: 8800737041503270573, guid: f659f8bb99fe57d488bf920bf06c0eea, type: 3}
+      propertyPath: Start_item_Active
+      value: 
+      objectReference: {fileID: 11400000, guid: 23224809f6421e848bbcce8f97f25acf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

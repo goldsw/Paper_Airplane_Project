@@ -3,12 +3,12 @@ using UnityEngine;
 public class Band : MonoBehaviour
 {
     Start_Item_Information ItemInfo;
-    BenshMark benchmark = null;
+    BenchMark benchmark = null;
     Player_Physics target;
     Vector2 dir;
     bool isExit = false;
 
-    public void Setting(Start_Item_Information _ItemInfo, BenshMark _benchmark, Player_Physics _target)
+    public void Setting(Start_Item_Information _ItemInfo, BenchMark _benchmark, Player_Physics _target)
     {
         ItemInfo = _ItemInfo;
         benchmark = _benchmark;

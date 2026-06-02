@@ -7,8 +7,8 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c50fb53121cc5f499042278b3fb906a, type: 3}
-  m_Name: SlingShot_behavior
+  m_Name: SlingShotBehavior
   m_EditorClassIdentifier: Assembly-CSharp::SlingShot_behavior

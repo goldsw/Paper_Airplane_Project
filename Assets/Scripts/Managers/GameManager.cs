@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    [SerializeField] ItemManager itemManager;
+    [SerializeField] SkillManager itemManager;
     [SerializeField] Start_item_Manager start_item_manager;
     private void Start()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Test_behavior : ItemActive
 {
+
     float timer = 0f;
     public override void Manager_Update()
     {
@@ -22,6 +23,8 @@ public class Test_behavior : ItemActive
     public override void Manager_Start()
     {
         base.Manager_Start();
+        //패시브 활성화
+        // UI 활성화 후 UI 대기
     }
     public override void Manager_Exit()
     {

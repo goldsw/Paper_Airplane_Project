@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Start_Item : MonoBehaviour
 {
-    public Start_item_Active Start_item_Active;
+    public Start_item_Active Start_item_Active; //이게 꼭 스크립타블?
     public Start_Item_Information Start_item_Info;
 
     //test
@@ -18,23 +18,11 @@ public class Start_Item : MonoBehaviour
         Start_item_Active.Initialize(Start_item_Info, this);
 
         switch (Start_item_Info.item_type) {
-            case (Start_Item_Information.Item_type.새총):{
+            case (Start_Item_Information.Item_type.SlingShot):{
                     //구현
                 break;
             }
 
-        }
-        if (Start_item_Info.item_type == Start_Item_Information.Item_type.새총)
-        {
-            //인풋 매니저에 드래그 엔 드롭을 놔야겠다..
-        }
-        else if (Start_item_Info.item_type == Start_Item_Information.Item_type.로켓)
-        {
-            //인풋
-        }
-        else if(Start_item_Info.item_type == Start_Item_Information.Item_type.팔)
-        {
-            //인풋
         }
     }
     private void Update()
