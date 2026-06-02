@@ -30,12 +30,11 @@ public class SlingShot_behavior : Start_item_Active
         base.Manager_Update();
         Vector2 mousepos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = finger_first_pos - mousepos;
+
         dir = Vector2.ClampMagnitude(dir, item_info.max_magnitude);
+        Vector2 benchmark_pos = (Vector2)benchmark.transform.position;
 
-        Debug.DrawLine((Vector2)benchmark.transform.position, (Vector2)benchmark.transform.position - dir);
-
-
-        band.transform.position = (Vector2)benchmark.transform.position - dir;
+        band.transform.position = benchmark_pos - dir;
         player.transform.position = new Vector3(benchmark.transform.position.x - dir.x, benchmark.transform.position.y - dir.y, player.transform.position.z);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         player.transform.rotation = Quaternion.Euler(0, 0, angle);

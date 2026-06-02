@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
     public static Item_Manager_Invoke Game_Update_Delegate;
     public static Item_Manager_Invoke Game_Physics_Delegate;
 
-
-
     [SerializeField] SkillManager itemManager;
     [SerializeField] Start_item_Manager start_item_manager;
     private void Start()

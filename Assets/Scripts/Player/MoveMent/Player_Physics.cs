@@ -15,8 +15,8 @@ public class Player_Physics : MonoBehaviour
     [SerializeField] private Vector2 gravity  = new Vector2(0, -9.8f);
     [SerializeField] private Vector2 air_drag = new Vector2(0, 6);
 
-    private Vector2 acceleration              = new Vector2(0, 0);
     private Vector2 input_acceleration        = new Vector2(0, 0);
+    private Vector2 acceleration              = new Vector2(0, 0);
     private Vector2 gravity_velocity          = new Vector2(0, 0);
     private Vector2 input_velocity            = new Vector2(0, 0);
 
