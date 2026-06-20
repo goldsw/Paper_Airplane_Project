@@ -18,13 +18,11 @@ public class Start_item_Manager : MonoBehaviour
         GameManager.Start_Item_Update_Delegate += Item_Active_Update;
     }
 
-    public void InstanceStartPos(GameObject start_Item)
+    public void Instance_Startitem(GameObject start_Item)
     {
         current_Start_Item = start_Item.GetComponentInChildren<Start_Item>();
         Instantiate(start_Item, start_Item_Pos.position, Quaternion.identity);
     }
-
-
 
     public void Item_Active_Update()
     {
