@@ -91,8 +91,8 @@ public class Player_Physics : MonoBehaviour
     {
         if(isStart)
         { 
-            acceleration = gravity + air_drag;
-            Add_Force(new Vector2(3f, 0));
+            acceleration = gravity + air_drag; //중력
+            Add_Force(new Vector2(3f, 0)); //바람
         }
         
 
