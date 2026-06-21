@@ -14,22 +14,18 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        stats = new Player_Stats(null, speed, air_darg, max_gravity, 0f, 0f);
+        stats = new Player_Stats(null, speed, air_darg, max_gravity, 0f, 0f); // 테스트용
         Initialize(stats);
     }
-
-
 
     public void Initialize(Player_Stats _stats)
     {
         stats = _stats;
         Physics = GetComponent<Player_Physics>();
         Physics.Initialize_Stats(stats);
-
-
-
     }
 
+    static
 
 
 

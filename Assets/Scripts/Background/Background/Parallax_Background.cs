@@ -1,16 +1,34 @@
 using UnityEngine;
 
-public class Parallax_Background : MonoBehaviour
+public class Parallax_Background : MonoBehaviour, IBackground
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Sprite _sprite;
+    private float _maxVelocity;
+    public void Initialize(Sprite sprite, Vector2 maxVelocity)
+    {
+        _sprite = sprite;
+        _maxVelocity = maxVelocity;
+    }
+
+    override public void OnEnter()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    override public void Frame_Update()
     {
-        
+
     }
+
+    override public void Physics_Update()
+    {
+
+    }
+
+    override public void OnExit()
+    {
+
+    }
+
+
 }
