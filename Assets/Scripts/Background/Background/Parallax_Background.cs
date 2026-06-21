@@ -4,6 +4,7 @@ public class Parallax_Background : MonoBehaviour, IBackground
 {
     private Sprite _sprite;
     private float _maxVelocity;
+    private Player _player;
     public void Initialize(Sprite sprite, Vector2 maxVelocity)
     {
         _sprite = sprite;
@@ -12,7 +13,7 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     override public void OnEnter()
     {
-        
+        _player = GameManager.Get_Player_Ref();
     }
 
     override public void Frame_Update()

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Player_Stats stats;
-    Player_Physics Physics;
+    public Player_Physics Physics;
 
     [SerializeField]
     float speed;
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     float air_darg;
 
-    private void Start()
+    private void Start() //test
     {
         stats = new Player_Stats(null, speed, air_darg, max_gravity, 0f, 0f); // 테스트용
         Initialize(stats);

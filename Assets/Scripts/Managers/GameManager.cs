@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static Player player;
     static bool isGameStart = true;
 
     public delegate void Start_item_Manager_Invoke();
@@ -36,6 +37,16 @@ public class GameManager : MonoBehaviour
 
         Start_Item_Physics_Delegate.Invoke();
         Game_Physics_Delegate.Invoke();
+    }
+
+    public static void Lobby_Started(Player in_player)
+    {
+        player = in_player
+    }
+
+    public static Player Get_Player_Ref()
+    {
+        return ref player;
     }
 
     public static void GameStart(bool _gameStart)
