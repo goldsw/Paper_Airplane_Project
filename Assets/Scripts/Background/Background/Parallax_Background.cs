@@ -3,17 +3,28 @@ using UnityEngine;
 
 public class Parallax_Background : MonoBehaviour, IBackground
 {
+    [Header("test values")]
+    public Camera test_cam;
+    public Sprite test_sprite;    
+    public float test_parallax_scale;
+
+
+    [Header("in game values")]
     private Player _player;
     private Sprite _sprite;
     private Camera _camera;
 
-    private Vector2 _max_velocity;
-
+    private float _parallax_scale;
     private float _next_background_x;
     private float _next_background_y;
-    public void Initialize(Camera camera, Sprite sprite, Vector2 maxVelocity)
-    {
 
+    private void Start()
+    {
+        Initialize(test_cam, test_sprite, test_parallax_scale);
+    }
+
+    public void Initialize(Camera camera, Sprite sprite, float parallax_scale)
+    {
         if (Set_Background_Next_Pos(sprite.bounds.size.x, sprite.bounds.size.y))
         {
             Debug.Log("Background Sprite is not valueble");
@@ -24,7 +35,7 @@ public class Parallax_Background : MonoBehaviour, IBackground
         _camera = camera;
         _player = GameManager.Get_Player_Ref();
 
-        _max_velocity = maxVelocity;
+        _parallax_scale = parallax_scale;
 
     }
 
