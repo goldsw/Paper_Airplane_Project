@@ -44,8 +44,15 @@ public class Parallax_Background : MonoBehaviour, IBackground
         // Çã~Á¢ ³»²¨
     }
 
+    private void Update()//test Update
+    {
+        Frame_Update();
+    }
+
     public void Frame_Update()
     {
+        Debug.Log(_sprite.bounds.size.y);
+
         Vector3 cam2sprite_dst = Get_Dst2Camera(_camera);
         Check_OutofCameraRange(cam2sprite_dst);
 

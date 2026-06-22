@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0bfcd4204e3744483f9adf83e19675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  Physics: {fileID: 0}
   speed: 10
   max_gravity: 2
   air_darg: 9
@@ -879,8 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0902ba948b6c8714189eb59f57c61911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Background_Manager
-  background_zone_size: {x: 30, y: 30}
-  player: {fileID: 237793912}
+  backgrounds: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1455409123}
   - component: {fileID: 1455409122}
+  - component: {fileID: 1455409124}
   m_Layer: 0
   m_Name: test_road
   m_TagString: Untagged
@@ -1592,6 +1593,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1455409124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455409121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83e96b677f23764e9da020cecbee2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
+  test_cam: {fileID: 0}
+  test_sprite: {fileID: 0}
+  test_parallax_scale: 0
 --- !u!1 &1458871269
 GameObject:
   m_ObjectHideFlags: 0

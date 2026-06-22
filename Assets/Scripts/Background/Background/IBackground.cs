@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 interface IBackground
 {
-    void Initialize(Camera camera, Sprite sprite, Vector2 maxVelocity);
+    void Initialize(Camera camera, Sprite sprite, float parallax_scale);
 
 
     void OnEnter();
@@ -17,8 +17,6 @@ interface IBackground
 
 
     void OnExit();
-
-    bool SetStride(float bg_width_size, float bg_height_size);
 
 
 }

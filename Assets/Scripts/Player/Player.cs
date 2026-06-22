@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         Physics.Initialize_Stats(stats);
     }
 
-    static
+    //static
 
 
 

@@ -6,12 +6,12 @@ using UnityEngine.UIElements;
 
 public class Background_Manager : MonoBehaviour
 {
-    private struct background_info//2瞒盔 甘... 没农??
-    {
-        public 
-    }
+    //private struct background_info//2瞒盔 甘... 没农??
+    //{
+    //    public 
+    //}
 
-    [SerializeField] private Parallax_Background backgrounds
+    [SerializeField] private Parallax_Background backgrounds;
     private Player_Physics _player_physics;
     private Camera _main_camera;
 
