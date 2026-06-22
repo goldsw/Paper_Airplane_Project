@@ -10,9 +10,9 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
 
     [Header("in game values")]
+    private Camera _camera;
     private Player _player;
     private Sprite _sprite;
-    private Camera _camera;
 
     private float _parallax_scale;
     private float _next_background_x;
@@ -20,12 +20,14 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     private void Start()
     {
+        
         Initialize(test_cam, test_sprite, test_parallax_scale);
     }
 
     public void Initialize(Camera camera, Sprite sprite, float parallax_scale)
     {
-        if (Set_Background_Next_Pos(sprite.bounds.size.x, sprite.bounds.size.y))
+
+        if (Set_Background_Next_Pos(sprite.bounds.size.x, sprite.bounds.size.y, camera))
         {
             Debug.Log("Background Sprite is not valueble");
             return;
@@ -33,7 +35,7 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
         _sprite = sprite;
         _camera = camera;
-        _player = GameManager.Get_Player_Ref();
+        //_player = GameManager.Get_Player_Ref();
 
         _parallax_scale = parallax_scale;
 
@@ -46,7 +48,7 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     private void Update()//test Update
     {
-        Frame_Update();
+        //Frame_Update();
     }
 
     public void Frame_Update()
@@ -70,12 +72,15 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     }
 
-    private bool Set_Background_Next_Pos(float bg_width_x, float bg_size_y)
+    private bool Set_Background_Next_Pos(float bg_width_x, float bg_size_y, Camera camera)
     {
+        Debug.Log(Screen.width);
+        Debug.Log(Screen.height);
+
         Vector2 camera_world_size = new Vector2(0, 0)
         {
-            x = Screen.width / (Screen.height / _camera.orthographicSize),
-            y = _camera.orthographicSize
+            x = Screen.width / (Screen.height / camera.orthographicSize), //Screen.width 는 진짜 내 모니터 크기를 리턴함 1440..
+            y = camera.orthographicSize
         };
 
         if (bg_width_x < camera_world_size.x || bg_size_y < camera_world_size.y) return false;
