@@ -4,31 +4,21 @@ using UnityEngine.UI;
 
 interface IBackground
 {
-    public void Initialize(Sprite sprite, Vector2 maxVelocity)
-    {
+    void Initialize(Camera camera, Sprite sprite, Vector2 maxVelocity);
 
-    }
 
-    public void OnEnter()
-    {
+    void OnEnter();
 
-    }
 
-    public void Frame_Update()
-    {
+    void Frame_Update();
 
-    }
 
-    public void Physics_Update()
-    {
-        
-    }
+    void Physics_Update();
 
-    public void OnExit() 
-    { 
-    
-    }
 
+    void OnExit();
+
+    bool SetStride(float bg_width_size, float bg_height_size);
 
 
 }
