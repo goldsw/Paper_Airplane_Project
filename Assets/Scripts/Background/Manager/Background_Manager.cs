@@ -27,8 +27,6 @@ public class Background_Manager : MonoBehaviour
         
     }
 
-    private 
-
 
 
 }
