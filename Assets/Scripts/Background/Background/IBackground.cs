@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 interface IBackground
 {
-    void Initialize(Camera camera, Sprite sprite, float parallax_scale);
+    void Initialize(Camera camera, Sprite background_sprite, float scale_x, float scale_y, float parallax_scale);
+
 
 
     void OnEnter();

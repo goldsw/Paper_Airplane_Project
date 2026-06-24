@@ -1,43 +1,64 @@
 using System;
+using TreeEditor;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Parallax_Background : MonoBehaviour, IBackground
 {
+    //public struct Background_Positioning_Values
+    //{
+    //    public float _parallax_scale;
+    //    public float _next_background_x;
+    //    public float _next_background_y;
+    //    public float _tp_area_x_range;
+    //    public float _tp_area_y_range;
+    //}
+
+
+
     [Header("test values")]
     public Camera test_cam;
-    public Sprite test_sprite;    
+    public Sprite test_sprite;
     public float test_parallax_scale;
 
+    public int offset_index_y;
 
     [Header("in game values")]
     private Camera _camera;
     private Player _player;
-    private Sprite _sprite;
+    private Sprite _background_sprite;
 
+    [Header("positioning values")]
     private float _parallax_scale;
-    private float _next_background_x;
-    private float _next_background_y;
+    private float _background_size_x;
+    private float _background_size_y;
+
+    private float _sum_of_background = 3;
+    private float _background_zone_range_y;
+
+
 
     private void Start()
     {
         
-        Initialize(test_cam, test_sprite, test_parallax_scale);
+        Initialize(test_cam, test_sprite, 1.5f, 1.5f, test_parallax_scale);
     }
 
-    public void Initialize(Camera camera, Sprite sprite, float parallax_scale)
+    public void Initialize(Camera camera, Sprite background_sprite, float scale_x, float scale_y, float parallax_scale)
     {
+        float background_size_x = background_sprite.bounds.size.x * scale_x;
+        float background_size_y = background_sprite.bounds.size.y * scale_y;
 
-        if (Set_Background_Next_Pos(sprite.bounds.size.x, sprite.bounds.size.y, camera))
-        {
-            Debug.Log("Background Sprite is not valueble");
-            return;
-        }
+        _background_size_x = background_size_x;
+        _background_size_y = background_size_y;
+        _background_zone_range_y = _background_size_y * _sum_of_background;
 
-        _sprite = sprite;
+        _background_sprite = background_sprite;
         _camera = camera;
         //_player = GameManager.Get_Player_Ref();
 
         _parallax_scale = parallax_scale;
+
 
     }
 
@@ -48,17 +69,12 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     private void Update()//test Update
     {
-        //Frame_Update();
+        Frame_Update();
     }
 
     public void Frame_Update()
     {
-        Debug.Log(_sprite.bounds.size.y);
-
-        Vector3 cam2sprite_dst = Get_Dst2Camera(_camera);
-        Check_OutofCameraRange(cam2sprite_dst);
-
-
+        Idkthisfuncname();
         //패럴렉스 
     }
 
@@ -72,53 +88,48 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     }
 
-    private bool Set_Background_Next_Pos(float bg_width_x, float bg_size_y, Camera camera)
-    {
-        Debug.Log(Screen.width);
-        Debug.Log(Screen.height);
 
-        Vector2 camera_world_size = new Vector2(0, 0)
+    private void Idkthisfuncname()
+    {
+        float cam_x_index = Mathf.Floor(_camera.transform.position.x / _background_size_x);
+        //float cam_y_index = Mathf.Floor(_camera.transform.position.y / _background_size_y);
+
+        float my_x_index = Mathf.Round(transform.position.x / _background_size_x);
+        //float my_y_index = Mathf.Round(transform.position.y / _background_size_y);
+
+        if (Mathf.Abs(cam_x_index - my_x_index) > 1)
         {
-            x = Screen.width / (Screen.height / camera.orthographicSize), //Screen.width 는 진짜 내 모니터 크기를 리턴함 1440..
-            y = camera.orthographicSize
-        };
+            // 하 열받네
 
-        if (bg_width_x < camera_world_size.x || bg_size_y < camera_world_size.y) return false;
+            float sign = MathF.Sign(cam_x_index - my_x_index);
+            float next_index_x = my_x_index + 3 * sign;
+            
+            Vector3 next_backgorund_pos = new Vector3(
+                next_index_x * _background_size_x,
+                0,
+                0
+            );
 
-        _next_background_x = bg_width_x + camera_world_size.x;
-        _next_background_y = bg_size_y + camera_world_size.y;
-
-        return true;
-    }
-
-    private Vector3 Get_Dst2Camera(Camera camera)
-    {
-        return camera.transform.position - transform.position;
-    }
-
-    private void Check_OutofCameraRange(Vector3 dst)
-    {
-        if (Math.Abs(dst.x) > _next_background_x)
-        {
-            float dst_error_stride = dst.x - _next_background_x;
-            int sign = (int)(dst_error_stride / dst_error_stride);
-
-            Vector3 next_pos_x = transform.position + new Vector3(sign * (_next_background_x - dst_error_stride), 0, 0);
-            Move_Position(next_pos_x);
+            Move_Pos(next_backgorund_pos);
         }
 
-        if (Math.Abs(dst.y) > _next_background_y)
-        {
-            float dst_error_stride = dst.y - _next_background_y;
-            int sign = (int)(dst_error_stride / dst_error_stride);
 
-            Vector3 next_pos_y = transform.position + new Vector3(0, sign * (_next_background_y - dst_error_stride), 0);
-            Move_Position(next_pos_y);
-        }
+
+
+        //float stride = MathF.Abs(_camera.transform.position.y - transform.position.y);
+
+        float background_tile_y = _camera.transform.position.y / _background_size_y;
+
+        int background_tile_index_y = (int)background_tile_y;
+
+        Move_Pos(new Vector3(transform.position.x, background_tile_index_y * _background_size_y + offset_index_y * _background_size_y));
+
+
     }
 
-    private void Move_Position(Vector3 pos)
+    private void Move_Pos(Vector3 pos)
     {
         transform.position = pos;
     }
+
 }
