@@ -29,18 +29,19 @@ public class Parallax_Background : MonoBehaviour, IBackground
     private Sprite _background_sprite;
 
     [Header("positioning values")]
+    public int _my_index_x;
+    public int _my_index_y;
+
     private float _parallax_scale;
     private float _background_size_x;
     private float _background_size_y;
 
-    private float _sum_of_background = 3;
-    private float _background_zone_range_y;
+    
 
 
 
     private void Start()
     {
-        
         Initialize(test_cam, test_sprite, 1.5f, 1.5f, test_parallax_scale);
     }
 
@@ -51,15 +52,15 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
         _background_size_x = background_size_x;
         _background_size_y = background_size_y;
-        _background_zone_range_y = _background_size_y * _sum_of_background;
+
+
+
 
         _background_sprite = background_sprite;
         _camera = camera;
         //_player = GameManager.Get_Player_Ref();
 
         _parallax_scale = parallax_scale;
-
-
     }
 
     public void OnEnter()
@@ -74,6 +75,7 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     public void Frame_Update()
     {
+        transform.position -= Vector3.down * 2 * Time.deltaTime;
         Idkthisfuncname();
         //패럴렉스 
     }
@@ -88,25 +90,33 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     }
 
+    static readonly int[] offset_x_index_array =
+    {
+        -1, 0, 1
+    };
+
+    static readonly int[] offset_y_index_array =
+    {
+        -1, 0, 1
+    };
 
     private void Idkthisfuncname()
     {
         float cam_x_index = Mathf.Floor(_camera.transform.position.x / _background_size_x);
-        //float cam_y_index = Mathf.Floor(_camera.transform.position.y / _background_size_y);
+        float cam_y_index = Mathf.Floor(_camera.transform.position.y / _background_size_y);
 
-        float my_x_index = Mathf.Round(transform.position.x / _background_size_x);
-        //float my_y_index = Mathf.Round(transform.position.y / _background_size_y);
+        _my_index_x = Mathf.FloorToInt(transform.position.x / _background_size_x);
+        _my_index_y = Mathf.FloorToInt(transform.position.y / _background_size_y);
 
-        if (Mathf.Abs(cam_x_index - my_x_index) > 1)
+        if (Mathf.Abs(cam_x_index - _my_index_x) > 1)
         {
-            // 하 열받네
 
-            float sign = MathF.Sign(cam_x_index - my_x_index);
-            float next_index_x = my_x_index + 3 * sign;
+            float sign = MathF.Sign(cam_x_index - _my_index_x);
+            _my_index_x += (int)(3 * sign);
             
             Vector3 next_backgorund_pos = new Vector3(
-                next_index_x * _background_size_x,
-                0,
+                _my_index_x * _background_size_x,
+                transform.position.y,
                 0
             );
 
@@ -114,16 +124,40 @@ public class Parallax_Background : MonoBehaviour, IBackground
         }
 
 
+        if (Mathf.Abs(cam_y_index - _my_index_y) > 1)
+        {
 
+            float sign = MathF.Sign(cam_y_index - _my_index_y);
+            _my_index_y += (int)(3 * sign);
+
+            Debug.Log("he");
+
+            Vector3 next_backgorund_pos = new Vector3(
+                transform.position.x,
+                _my_index_y * _background_size_y,
+                0
+            );
+
+            Move_Pos(next_backgorund_pos);
+        }
 
         //float stride = MathF.Abs(_camera.transform.position.y - transform.position.y);
 
-        float background_tile_y = _camera.transform.position.y / _background_size_y;
+        //offset_index_y = (int)((transform.position.y - (_camera.transform.position.y - _background_size_y)) / (_background_size_y - 1));
+        //if (offset_index_y < 0)
+        //{
+        //    offset_index_y = 2;
+        //}
+        //else if (offset_index_y > 2)
+        //{
+        //    offset_index_y = 0;
+        //}
 
-        int background_tile_index_y = (int)background_tile_y;
+        //float background_tile_y = _camera.transform.position.y / _background_size_y;
 
-        Move_Pos(new Vector3(transform.position.x, background_tile_index_y * _background_size_y + offset_index_y * _background_size_y));
+        //int background_tile_index_y = (int)background_tile_y;
 
+        //Move_Pos(new Vector3(transform.position.x, background_tile_index_y * _background_size_y + offset_index_array[offset_index_y] * _background_size_y));
 
     }
 
@@ -131,5 +165,7 @@ public class Parallax_Background : MonoBehaviour, IBackground
     {
         transform.position = pos;
     }
+
+    // 레벨 바꾸는건 어디서??..
 
 }
