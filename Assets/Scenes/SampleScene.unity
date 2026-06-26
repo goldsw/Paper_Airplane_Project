@@ -464,7 +464,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!212 &261098713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -532,7 +533,7 @@ Transform:
   m_GameObject: {fileID: 261098711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 10.1, z: 0}
+  m_LocalPosition: {x: -0.3, y: 9.1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -572,7 +573,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!212 &272728479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1010,7 +1012,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!212 &677586070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1078,7 +1081,7 @@ Transform:
   m_GameObject: {fileID: 677586068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.34, y: -10.4, z: 0}
+  m_LocalPosition: {x: -22.34, y: -9.799999, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1194,7 +1197,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!212 &756585138
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1262,7 +1266,7 @@ Transform:
   m_GameObject: {fileID: 756585136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.34, y: 10.1, z: 0}
+  m_LocalPosition: {x: -22.34, y: 9.1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1609,7 +1613,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!212 &1091023640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1677,7 +1682,7 @@ Transform:
   m_GameObject: {fileID: 1091023638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.54, y: -10.4, z: 0}
+  m_LocalPosition: {x: 21.54, y: -9.9, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1792,7 +1797,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!212 &1302157608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1860,7 +1866,7 @@ Transform:
   m_GameObject: {fileID: 1302157606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.54, y: 10.1, z: 0}
+  m_LocalPosition: {x: 21.54, y: 9.1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2257,7 +2263,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!1 &1458871269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,7 +2933,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!212 &1822560130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3264,7 +3272,8 @@ MonoBehaviour:
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
   test_parallax_scale: 0
   offset_index_y: 1
-  my_Index: 0
+  _my_index_x: 0
+  _my_index_y: 0
 --- !u!212 &2010976892
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3332,7 +3341,7 @@ Transform:
   m_GameObject: {fileID: 2010976890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -10.4, z: 0}
+  m_LocalPosition: {x: -0.3, y: -9.799999, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
