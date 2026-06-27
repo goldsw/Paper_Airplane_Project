@@ -70,9 +70,6 @@ public class Parallax_Background_Pin : MonoBehaviour, IBackground
 
     public void Frame_Update()
     {
-        //TODO : 
-        Parallax_Scale();
-        Idkthisfuncname();
         Parallax_Scrolling();
         //패럴렉스 
     }
@@ -104,99 +101,6 @@ public class Parallax_Background_Pin : MonoBehaviour, IBackground
             _Anker_Pos.y += Mathf.Sign(distance.y) * _background_size_y;
         }
 
-    }
-
-    private void Parallax_Scale()
-    {
-        //Vector3 parallax_pos = _camera.transform.position * _parallax_scale;
-        //Vector3 movement = _camera.transform.position * (1 - _parallax_scale);
-        //Vector3 scrolling_pos = _Anker_Pos + parallax_pos;
-
-        //Move_Pos(new Vector3(scrolling_pos.x, scrolling_pos.y, transform.position.z));
-
-        //if(Math.Abs(transform.position.x - _Anker_Pos.x) > _background_size_x)
-        //{
-        //    _Anker_Pos.x += _background_size_x;
-        //}
-
-
-
-        //if (Math.Abs(movement.x) > _Anker_Pos.x + (x_sign * _background_size_x))
-        //{
-        //    _Anker_Pos.x += x_sign * _background_size_x;
-        //}
-
-        //if (Math.Abs(movement.y) > Math.Abs(_camera.transform.position.y) - _background_size_y)
-        //{
-        //    _Anker_Pos.y += Math.Sign(dst_y) * _background_size_y;
-        //}
-
-    }
-
-    private void Idkthisfuncname()
-    {
-        float cam_x_index = Mathf.Floor(_camera.transform.position.x / _background_size_x);
-        float cam_y_index = Mathf.Floor(_camera.transform.position.y / _background_size_y);
-
-        float _my_index_x = Mathf.RoundToInt(transform.position.x / _background_size_x);
-        float _my_index_y = Mathf.RoundToInt(transform.position.y / _background_size_y);
-
-        Debug.Log(Mathf.Floor(transform.position.x));
-        
-
-        //if (Mathf.Abs(cam_x_index - _my_index_x) > 1)
-        //{
-
-        //    float sign = MathF.Sign(cam_x_index - _my_index_x);
-        //    _my_index_x += (int)(3 * sign);
-
-
-
-        //    //TODO : 라운드 함수 때문에 1/2 지점에 도달하면 배경이 스와이프 되어서 겹쳐버림 스와이프 되는 지점에 y축 크기 1/2을 더해서 해보자.
-        //    Vector3 next_backgorund_pos = new Vector3(
-        //        _my_index_x * _background_size_x,
-        //        transform.position.y,
-        //        0
-        //    );
-
-        //    Move_Pos(next_backgorund_pos);
-        //}
-
-
-        //if (Mathf.Abs(cam_y_index - _my_index_y) > 1)
-        //{
-
-        //    float sign = MathF.Sign(cam_y_index - _my_index_y);
-        //    _my_index_y += (int)(3 * sign);
-
-        //    Debug.Log("he");
-
-        //    Vector3 next_backgorund_pos = new Vector3(
-        //        transform.position.x,
-        //        _my_index_y * _background_size_y,
-        //        0
-        //    );
-
-        //    Move_Pos(next_backgorund_pos);
-        //}
-
-        //float stride = MathF.Abs(_camera.transform.position.y - transform.position.y);
-
-        //offset_index_y = (int)((transform.position.y - (_camera.transform.position.y - _background_size_y)) / (_background_size_y - 1));
-        //if (offset_index_y < 0)
-        //{
-        //    offset_index_y = 2;
-        //}
-        //else if (offset_index_y > 2)
-        //{
-        //    offset_index_y = 0;
-        //}
-
-        //float background_tile_y = _camera.transform.position.y / _background_size_y;
-
-        //int background_tile_index_y = (int)background_tile_y;
-
-        //Move_Pos(new Vector3(transform.position.x, background_tile_index_y * _background_size_y + offset_index_array[offset_index_y] * _background_size_y));
     }
 
     private void Move_Pos(Vector3 pos)
