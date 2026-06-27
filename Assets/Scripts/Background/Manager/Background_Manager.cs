@@ -11,7 +11,7 @@ public class Background_Manager : MonoBehaviour
     //    public 
     //}
 
-    [SerializeField] private Parallax_Background backgrounds;
+    [SerializeField] private Parallax_Background_Pin backgrounds;
     private Player_Physics _player_physics;
     private Camera _main_camera;
 

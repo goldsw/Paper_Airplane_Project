@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEditor.SearchService;
 using UnityEngine;
 
-public class Parallax_Background : MonoBehaviour, IBackground
+public class Parallax_Background_Pin : MonoBehaviour, IBackground
 {
     //public struct Background_Positioning_Values
     //{
@@ -25,15 +25,10 @@ public class Parallax_Background : MonoBehaviour, IBackground
     public Sprite test_sprite;
     public float test_parallax_scale;
 
-    public int offset_index_y;
-
     [Header("in game values")]
     private Camera _camera;
     private Player _player;
     private Sprite _background_sprite;
-    private float _camera_half_size_x;
-    private float _camera_half_size_y;
-
 
     [Header("positioning values")]
     private Vector3 _Anker_Pos;
@@ -60,9 +55,6 @@ public class Parallax_Background : MonoBehaviour, IBackground
         _background_size_x = background_size_x;
         _background_size_y = background_size_y;
 
-        _camera_half_size_x = _camera.orthographicSize;
-        _camera_half_size_y = ((float)Screen.width / Screen.height) * _camera.orthographicSize;
-
         _parallax_scale = parallax_scale;
     }
 
@@ -81,6 +73,7 @@ public class Parallax_Background : MonoBehaviour, IBackground
         //TODO : 
         Parallax_Scale();
         Idkthisfuncname();
+        Parallax_Scrolling();
         //패럴렉스 
     }
 
@@ -94,22 +87,22 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     }
 
-    static readonly int[] offset_x_index_array =
-    {
-        -1, 0, 1
-    };
-
-    static readonly int[] offset_y_index_array =
-    {
-        -1, 0, 1
-    };
-
     private void Parallax_Scrolling()
     {
+        Vector3 scrolling_pos = _camera.transform.position * _parallax_scale;
+        Vector3 distance = _camera.transform.position - transform.position;
+
+        Move_Pos(_Anker_Pos + scrolling_pos);
 
 
-
-
+        if (Mathf.Abs(distance.x) > _background_size_x)
+        {
+            _Anker_Pos.x += Mathf.Sign(distance.x) * _background_size_x;
+        }
+        if (Mathf.Abs(distance.y) > _background_size_y)
+        {
+            _Anker_Pos.y += Mathf.Sign(distance.y) * _background_size_y;
+        }
 
     }
 
@@ -142,18 +135,21 @@ public class Parallax_Background : MonoBehaviour, IBackground
 
     private void Idkthisfuncname()
     {
-        //float cam_x_index = Mathf.Floor(_camera.transform.position.x / _background_size_x);
-        //float cam_y_index = Mathf.Floor(_camera.transform.position.y / _background_size_y);
+        float cam_x_index = Mathf.Floor(_camera.transform.position.x / _background_size_x);
+        float cam_y_index = Mathf.Floor(_camera.transform.position.y / _background_size_y);
 
-        //float _my_index_x = Mathf.RoundToInt(transform.position.x / _background_size_x);
-        //float _my_index_y = Mathf.RoundToInt(transform.position.y / _background_size_y);
+        float _my_index_x = Mathf.RoundToInt(transform.position.x / _background_size_x);
+        float _my_index_y = Mathf.RoundToInt(transform.position.y / _background_size_y);
+
+        Debug.Log(Mathf.Floor(transform.position.x));
+        
 
         //if (Mathf.Abs(cam_x_index - _my_index_x) > 1)
         //{
 
         //    float sign = MathF.Sign(cam_x_index - _my_index_x);
         //    _my_index_x += (int)(3 * sign);
-            
+
 
 
         //    //TODO : 라운드 함수 때문에 1/2 지점에 도달하면 배경이 스와이프 되어서 겹쳐버림 스와이프 되는 지점에 y축 크기 1/2을 더해서 해보자.
