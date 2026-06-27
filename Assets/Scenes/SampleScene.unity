@@ -462,10 +462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!212 &261098713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -571,10 +569,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!212 &272728479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1010,10 +1006,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!212 &677586070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1195,10 +1189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!212 &756585138
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1611,10 +1603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!212 &1091023640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1795,10 +1785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!212 &1302157608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2261,10 +2249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!1 &1458871269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,10 +2917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!212 &1822560130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3270,10 +3254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallax_Background
   test_cam: {fileID: 330585545}
   test_sprite: {fileID: 21300000, guid: 8a872d7f8db85ea418ff5f0044e36cb3, type: 3}
-  test_parallax_scale: 0
+  test_parallax_scale: 0.5
   offset_index_y: 1
-  _my_index_x: 0
-  _my_index_y: 0
 --- !u!212 &2010976892
 SpriteRenderer:
   m_ObjectHideFlags: 0
