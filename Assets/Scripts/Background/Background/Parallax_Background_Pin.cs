@@ -89,18 +89,21 @@ public class Parallax_Background_Pin : MonoBehaviour, IBackground
         Vector3 scrolling_pos = _camera.transform.position * _parallax_scale;
         Vector3 distance = _camera.transform.position - transform.position;
 
-        Move_Pos(_Anker_Pos + scrolling_pos);
-
 
         if (Mathf.Abs(distance.x) > _background_size_x)
         {
-            _Anker_Pos.x += Mathf.Sign(distance.x) * _background_size_x;
+            int time = Mathf.RoundToInt((_camera.transform.position.x - _Anker_Pos.x) / _background_size_x);
+
+            _Anker_Pos.x += time * _background_size_x - scrolling_pos.x;
         }
         if (Mathf.Abs(distance.y) > _background_size_y)
         {
-            _Anker_Pos.y += Mathf.Sign(distance.y) * _background_size_y;
+            int time = Mathf.RoundToInt((_camera.transform.position.y - _Anker_Pos.y) / _background_size_y);
+
+            _Anker_Pos.y += time * _background_size_y - scrolling_pos.y;
         }
 
+        Move_Pos(_Anker_Pos + scrolling_pos);
     }
 
     private void Move_Pos(Vector3 pos)
